@@ -1,0 +1,52 @@
+<?php
+if(isset($_POST['submit'])) {
+if(isset($_POST['name']) && $_POST['name'] !=''){
+$name=$_POST['name'];
+}
+else{
+$error[]='name is missing';
+}
+if(isset($_POST['email']) && $_POST['email'] !=''){
+$email=$_POST['email'];
+}
+else{
+$error[]='email is missing';
+}
+if(isset($_POST['last_name']) && $_POST['last_name'] !=''){
+$last_name=$_POST['last_name'];
+}
+else{
+$error[]='last name is missing';
+}
+if(isset($error) && count($error) >0 )
+{
+// we will see
+}
+else{
+foreach ($error as $value) {
+# code...
+echo $value;
+echo '<br>';
+}
+}
+}
+?>
+<html>
+<form action="" method="post">
+Name
+<input type="text" name="name" value="<?php
+if(isset($_POST['name'])) echo trim($_POST['name']);?>">
+<br>
+Last Name
+<input type="text" name="last_name" value="<?php
+if(isset($_POST['last_name'])) echo trim($_POST['last_name']);?>">
+<br>
+email
+<input type="text" name="email" value="<?php
+if(isset($_POST['email'])) echo trim($_POST['email']);?>">
+<br>
+Password
+<input type="password" name="">
+<input type="submit" name="submit" value="submit">
+</form>
+</html>

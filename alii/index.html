@@ -1,0 +1,47 @@
+<?php
+if (isset ($_POST['submit']))
+if (isset ($_POST['name']) && $_POST['name'] !=' '){
+}
+else {
+$error []='name is missing';
+}
+{
+if (isset ($_POST['last_name']) && $_POST ['last_name'] !=' '){
+$name=$_POST ['last_name'];
+}
+else
+$error[]='last_name is missing';
+}
+{
+if (isset ($_POST['email']) && $_POST ['email'] !=' '){
+$name=$_POST ['email'];
+}
+else
+$error[]='email is missing';
+}
+{if (count($error) == 1) {
+//we will seee
+$conn =mysqli_connect('localhost','root','','alii');
+//check connection
+if(!$conn){
+
+die("Connection failed:" mysqli_connect_error());
+}
+echo "Connected successfully";
+$q="insert into form('Name','E-mail') VALUES ($name,$E-mail)";
+mysqli_query($conn,$q);
+}else{
+foreach ($error as $value) {
+echo $value;
+<br>
+<html>  
+<body>
+
+<form action="welcome.php" method="post">
+Name: <input type="text" name="name"><br>
+E-mail: <input type="text" name="email"><br>
+<input type="submit">
+</form>
+
+</body>
+</html>
